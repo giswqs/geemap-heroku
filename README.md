@@ -1,6 +1,6 @@
 # geemap-heroku
 
-Python scripts for deploying Earth Engine Apps to heroku
+Python scripts for deploying Earth Engine Apps to heroku, try it out: <https://geemap-demo.herokuapp.com/>
 
 ## How to deploy your own Earth Engine Apps?
 

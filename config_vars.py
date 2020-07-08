@@ -1,4 +1,5 @@
 import os
+from subprocess import DEVNULL, STDOUT, check_call
 
 def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
     """Extracts Earth Engine token from the local computer and sets it as an environment variable on heroku.
@@ -17,8 +18,8 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
             with open(ee_token_file) as f:
                 content = f.read()
                 token = content.split(':')[1][1:-3]
-                command = 'heroku config:set {}={}'.format(token_name, token)
-                os.system(command)
+                secret = '{}={}'.format(token_name, token)
+                check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT)
 
     except Exception as e:
         print(e)
@@ -26,4 +27,4 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
 
 if __name__ == '__main__':
 
-    set_heroku_vars()
+    set_heroku_vars(token_name='EARTHENGINE_TOKEN')
