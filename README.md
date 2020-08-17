@@ -7,7 +7,7 @@ Python scripts for deploying Earth Engine Apps to heroku, try it out: <https://g
 - [Sign up](https://signup.heroku.com/) for a free heroku account.
 - Follow the [instructions](https://devcenter.heroku.com/articles/getting-started-with-python#set-up) to install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and Heroku Command Line Interface (CLI).
 - Authenticate heroku using the `heroku login` command.
-- Clone this repository.
+- Clone this repository: <https://github.com/giswqs/geemap-heroku>
 - Create your own Earth Engine notebook and put it under the `notebooks` directory.
 - Add Python dependencies in the `requirements.txt` file if needed.
 - Edit the `Procfile` file by replacing `notebooks/geemap.ipynb` with the path to your own notebook.
