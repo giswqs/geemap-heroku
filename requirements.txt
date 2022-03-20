@@ -1,4 +1,4 @@
 voila
-git+git://github.com/giswqs/geemap.git
+geemap
 pyparsing==2.4.7
 httplib2==0.19.1
