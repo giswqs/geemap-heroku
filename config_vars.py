@@ -1,5 +1,6 @@
 import os
 import platform
+import json
 from subprocess import DEVNULL, STDOUT, check_call
 
 def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
@@ -16,13 +17,11 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
         if not os.path.exists(ee_token_file):
             print('The credentials file does not exist.')
         else:
+
             with open(ee_token_file) as f:
                 content = f.read()
-                token = content.split(':')[1].strip()[1:-2]
-                # if platform.system() == 'Linux':
-                #     token = content.split(':')[1][1:-3]
-                # else:
-                #     token = content.split(':')[1][2:-2]
+                content_json = json.loads(content)
+                token = content_json["refresh_token"]
                 secret = '{}={}'.format(token_name, token)
                 if platform.system() == 'Windows':
                     check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT, shell=True)
