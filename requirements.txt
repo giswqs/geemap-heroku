@@ -1,4 +1,4 @@
 voila
 geemap
 leafmap
-Jinja2==3.0.3
+Jinja2==3.1.3
